@@ -23,7 +23,7 @@ def hello():
 
 @app.route('/api/wx', methods=['GET'])
 def wx():
-    data = request.get_json()
+    data = request.args()
     if len(data) == 0:
         return "hello, this is handle view"
     signature = data.signature
