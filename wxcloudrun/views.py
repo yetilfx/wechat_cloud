@@ -37,7 +37,7 @@ def wx():
     sha1 = hashlib.sha1()
     map(sha1.update, list)
     hashcode = sha1.hexdigest()
-    print("handle/GET func: hashcode:%s, signature:%s" % [hashcode, signature])
+    print("handle/GET func: hashcode:%s, signature:%s" % (hashcode, signature))
     if hashcode == signature:
         return echostr
     else:
