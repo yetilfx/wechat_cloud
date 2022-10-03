@@ -30,7 +30,7 @@ def wx():
     timestamp = data.timestamp
     nonce = data.nonce
     echostr = data.echostr
-    token = "xxxx"  # 请按照公众平台官网\基本配置中信息填写
+    token = "comall-test-luofeixue"  # 请按照公众平台官网\基本配置中信息填写
 
     list = [token, timestamp, nonce]
     list.sort()
