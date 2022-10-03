@@ -1,3 +1,4 @@
+from crypt import methods
 from datetime import datetime
 from flask import render_template, request
 from run import app
@@ -13,6 +14,9 @@ def index():
     """
     return render_template('index.html')
 
+@app.route('/api/hello',methods=['GET'])
+def hello():
+    return make_succ_response("Hello world")
 
 @app.route('/api/count', methods=['POST'])
 def count():
