@@ -3,3 +3,7 @@ GET https://flask-bxj5-10249-5-1314201837.sh.run.tcloudbase.com/api/hello
 ###
 
 GET https://flask-bxj5-10249-5-1314201837.sh.run.tcloudbase.com/api/wx
+    ?signature="qweqweqweqw"
+    &timestamp="312312312312312"
+    &nonce="312312"
+    &echostr="123123"
