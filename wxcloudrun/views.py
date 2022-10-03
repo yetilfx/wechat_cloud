@@ -26,10 +26,10 @@ def wx():
     data = request.args
     if len(data) == 0:
         return "hello, this is handle view"
-    signature = data.signature
-    timestamp = data.timestamp
-    nonce = data.nonce
-    echostr = data.echostr
+    signature = data["signature"]
+    timestamp = data["timestamp"]
+    nonce = data["nonce"]
+    echostr = data["echostr"]
     token = "comall-test-luofeixue"  # 请按照公众平台官网\基本配置中信息填写
 
     list = [token, timestamp, nonce]
