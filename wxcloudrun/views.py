@@ -1,5 +1,6 @@
 from crypt import methods
 from datetime import datetime
+import hashlib
 from flask import render_template, request
 from run import app
 from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
@@ -14,9 +15,34 @@ def index():
     """
     return render_template('index.html')
 
-@app.route('/api/hello',methods=['GET'])
+
+@app.route('/api/hello', methods=['GET'])
 def hello():
     return make_succ_response("Hello world")
+
+
+@app.route('/api/wx', methods=['GET'])
+def wx():
+    data = request.get_json()
+    if len(data) == 0:
+        return "hello, this is handle view"
+    signature = data.signature
+    timestamp = data.timestamp
+    nonce = data.nonce
+    echostr = data.echostr
+    token = "xxxx"  # 请按照公众平台官网\基本配置中信息填写
+
+    list = [token, timestamp, nonce]
+    list.sort()
+    sha1 = hashlib.sha1()
+    map(sha1.update, list)
+    hashcode = sha1.hexdigest()
+    print("handle/GET func: hashcode:%s, signature:%s" % [hashcode, signature])
+    if hashcode == signature:
+        return echostr
+    else:
+        return ""
+
 
 @app.route('/api/count', methods=['POST'])
 def count():
